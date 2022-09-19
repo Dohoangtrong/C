@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+struct PhanSo{
+	long long tu, mau;
+};
+
+void nhap(PhanSo &a){
+	cin >> a.tu >> a.mau;
+}
+
+long long rutgon(long long a, long long b){
+    if (a % b != 0 )
+        return rutgon(b,a % b);
+    else
+        return b;
+}
+
+PhanSo tong(PhanSo a, PhanSo b){
+	long long tu = a.tu*b.mau + b.tu*a.mau;
+	long long mau = b.mau * a.mau;
+	long long UCLN = rutgon (tu,mau);
+	PhanSo t;
+	t.tu = tu/UCLN;
+	t.mau = mau/UCLN;
+	return t;
+}
+
+void in(PhanSo a){
+	cout << a.tu << "/" << a.mau;
+}
+
+int main() {
+	struct PhanSo p,q;
+	nhap(p); nhap(q);
+	PhanSo t = tong(p,q);
+	in(t);
+	return 0;
+}
