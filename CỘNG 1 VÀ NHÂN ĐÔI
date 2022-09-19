@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int a;
+	cin >> a;
+	while(a--){
+		int n;
+		cin >> n;
+		long long arr[n];
+		for ( int i = 0; i < n; i++){
+			cin >> arr[i];
+		}
+    	int dem = 0, kt = 1;
+    	while(kt == 1){
+    		kt = 0;
+    		for ( int i = 0; i < n; i++){
+    			if ( arr[i] % 2 == 1 ){
+    				arr[i] -= 1;
+    				dem++;
+    				arr[i] /= 2;
+				}else{
+					arr[i] /= 2;
+				}
+				if ( arr[i] != 0 ){
+    				kt = 1;
+				}
+			}
+			if ( kt == 1 ){
+			dem++;
+			}
+		}
+		cout << dem << "\n";
+	}
+}
