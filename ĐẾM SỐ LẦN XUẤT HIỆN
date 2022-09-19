@@ -1,0 +1,30 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+
+main (){ 
+	int n;
+	cin >> n;
+	while(n--){
+		int a, c;
+		cin >> a >> c;
+		int b[a];
+		for ( int i = 0; i < a; i++){
+			cin >> b[i];
+		}
+		int dem = 0;
+		for ( int i = 0; i < a; i++){
+			if (b[i] == c){
+				dem++;
+			}
+			if(b[i] > c){
+				break;
+			}
+		}
+		if( dem > 0 ){
+		cout << dem << endl;
+		}else{
+			cout << -1 << endl;
+		}
+	}
+}
