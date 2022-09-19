@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	for ( int i = 0; i < n; i++){
+		double a, b, c, d;
+		cin >> a >> b >> c >> d;
+		double s = pow(c-a,2) + pow(d-b,2);
+		double sq = sqrt(s);
+		cout << fixed << setprecision(4) <<sq << endl;
+	}
+	
+}
