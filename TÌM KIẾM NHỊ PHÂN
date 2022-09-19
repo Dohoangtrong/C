@@ -1,0 +1,27 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+
+main (){ 
+	int n;
+	cin >> n;
+	while(n--){
+		int a, ss, kt = 0;
+		cin >> a;
+		cin >> ss;
+		int b[a];
+		for ( int i = 0; i < a; i++){
+			cin >> b[i];
+		}
+		for ( int i = 0; i < a; i++){
+			if ( b[i] == ss ){
+				kt = 1;
+				cout << 1 << endl;
+				break;
+			}
+		}
+		if ( kt == 0 ){
+			cout << -1 << endl;
+		}
+	}
+}
