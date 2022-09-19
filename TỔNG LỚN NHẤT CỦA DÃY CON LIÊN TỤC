@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void findSubArrayMax( int n, long long arr[] ) {
+    long long best = INT_MIN, sum = 0;
+    for (int i = 0; i < n; i++) {
+        if (sum + arr[i] < arr[i]) {
+            sum = arr[i];
+        } else {
+            sum += arr[i];
+        }
+
+        if (best < sum) {
+            best = sum;
+        }
+    }
+    cout << best << "\n";
+}
+
+int main() {
+	int a;
+	cin >> a;
+	while(a--){
+		int n;
+		cin >> n;
+		long long arr[n];
+		for ( int i = 0; i < n; i++){
+			cin >> arr[i];
+		}
+    	findSubArrayMax(n,arr);
+	}
+}
