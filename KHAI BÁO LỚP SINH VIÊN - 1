@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+class SinhVien
+{
+private:
+	string id;
+	string name;
+	string cls;
+	string date;
+	float Gpa;
+public:
+	void nhap(){
+		id = "B20DCCN001";
+		getline(cin,name);
+		getline(cin,cls);
+		getline(cin,date);
+		if(date[2]!='/')
+      		date = "0" + date;
+    	if(date[5]!='/')
+        	date.insert(3, "0");
+		cin >> Gpa;
+	}
+	void xuat(){
+		cout << id << " " << 
+		name << " " << 
+		cls << " " << 
+		date << " " << setprecision(2) << fixed << Gpa;
+	}
+};
+
+int main(){
+    SinhVien a;
+    a.nhap();
+    a.xuat();
+    return 0;
+}
