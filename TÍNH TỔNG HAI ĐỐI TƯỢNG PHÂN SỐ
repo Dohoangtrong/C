@@ -1,0 +1,52 @@
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+long long rutgon(long long a, long long b){
+    if (a % b != 0 )
+        return rutgon(b,a % b);
+    else
+        return b;
+}
+
+class PhanSo
+{
+	public:
+	long long tu, mau;
+	public:
+		PhanSo (long long tu, long long mau);
+};
+	PhanSo :: PhanSo(long long tu, long long mau){
+		this ->tu = tu;
+		this ->mau = mau;
+	}
+	
+	istream& operator >> (istream &is, PhanSo &ps){
+		is >> ps.tu;
+		is >> ps.mau;
+		return is;
+	}
+	
+	ostream& operator << (ostream &os, PhanSo ps){
+		long long m = rutgon(ps.tu,ps.mau);
+		ps.tu = ps.tu / m;
+		ps.mau = ps.mau /m;
+		os << ps.tu << "/" << ps.mau;
+		return os;
+	}
+	PhanSo operator + (PhanSo a, PhanSo b){
+		PhanSo sum(1,1);
+		sum.tu = a.tu * b.mau + a.mau * b.tu;
+		sum.mau = a.mau * b.mau;
+		long long uc = rutgon(sum.tu,sum.mau);
+		sum.tu /= uc;
+		sum.mau /= uc;
+		return sum;
+	}
+	
+int main() {
+	PhanSo p(1,1), q(1,1);
+	cin >> p >> q;
+	cout << p + q;
+	return 0;
+}
