@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#include<math.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	while (n--){
+		string a;
+		cin >> a;
+		int kt = 1;
+		int b = a.length();
+		int chan = 0, le = 0;
+		for ( int i = 0; i < b; i++){
+			if (i % 2 == 0){
+				chan += a[i] -'0';
+			}else{
+				le += a[i] -'0';
+			}
+		}
+		int c = abs(chan - le);
+		if ( c % 11 == 0 ){
+			cout << "1" << endl;
+		}else{
+			cout << "0" << endl;
+		}
+	}
+}
+
