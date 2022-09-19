@@ -1,0 +1,27 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+main (){ 
+	int a;
+	cin >> a;
+	while(a--){
+		int n;
+		cin >> n;
+		int b[n];
+		for ( int i = 0; i < n; i++){
+			cin >> b[i];
+		}
+		set<int> dem;
+		for ( int i = 0; i < n; i++){
+			while ( b[i] > 0 ){
+				int c = b[i] % 10;
+				b[i] /= 10;
+				dem.insert(c);
+			}
+		}
+		for(int x:dem){ 
+			cout<<x<<" ";
+		}
+		cout << endl;
+	}
+}
