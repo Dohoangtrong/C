@@ -1,0 +1,30 @@
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+class NhanVien
+{
+	private:
+	string id, name, sex, date, adress, tax, day;
+	public:
+		void nhap(){
+			id = "00001";
+			getline(cin,name);
+			getline(cin,sex);
+			getline(cin,date);
+			getline(cin,adress);
+			getline(cin,tax);
+			getline(cin,day);
+		} 
+		void xuat(){
+			cout << id << " " << name << " " << sex << " " << date << " " << adress << " " << tax << " " << day;
+		}
+};
+
+	
+int main(){
+    NhanVien a;
+    a.nhap();
+    a.xuat();
+    return 0;
+}
