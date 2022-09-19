@@ -1,0 +1,29 @@
+#include<bits/stdc++.h> 
+#include<string>
+
+using namespace std; 
+main (){ 
+	int n;
+	cin >> n;
+	cin.ignore();
+	while(n--){
+		char a = ' ';
+		int sum = 0, chan = 0, le = 0;
+		while (a != '\n'){
+			int b;
+			cin >> b;
+			sum++;
+			if ( b % 2 == 0 ){
+				chan++;
+			}else{
+				le++;
+			}
+			a = getchar();
+		}
+		if( ( chan > le && sum % 2 == 0 ) || ( le > chan && sum % 2 == 1 ) ){
+			cout << "YES" << endl;
+		}else{
+			cout << "NO" << endl;
+		}
+	}
+}
