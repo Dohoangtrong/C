@@ -1,0 +1,32 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+main (){ 
+	int a;
+	cin >> a;
+	while(a--){
+		int m, n;
+		cin >> m >> n;
+		int b[m], c[n];
+		for ( int i = 0; i < m; i ++){
+			cin >> b[i];
+		}
+		for ( int i = 0; i < n; i++){
+			cin >> c[i];
+		}
+		int max = b[0];
+		int min = c[0];
+		for ( int i = 0; i < m; i++){
+			if ( max < b[i] ){
+				max = b[i];
+			}
+		}
+		for ( int i = 0; i < n; i++){
+			if ( min > c[i] ){
+				min = c[i];
+			}
+		}
+		long long tich = (long long)max * min;
+		cout << tich << endl;
+	}
+}
