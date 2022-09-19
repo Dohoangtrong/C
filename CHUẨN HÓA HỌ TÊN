@@ -1,0 +1,40 @@
+#include<bits/stdc++.h> 
+#include<string> 
+#include<vector>
+
+using namespace std; 
+main (){ 
+	string a;
+	getline(cin,a);
+	stringstream ss(a);
+	string temp;
+	vector<string> v;
+	while(ss >> temp){
+		v.push_back(temp);
+	}
+	for ( int i = 0; i < v.size()-1; i++){
+		string b = v[i];
+		if ( b[0] <= 'z' && b[0] >= 'a' ){
+			b[0] -= 32;
+		}
+		cout << b[0];
+		for ( int j = 1; j < b.length(); j++){
+			if (b[j] >= 'A' && b[j] <= 'Z'){
+				b[j] += 32;
+			}
+			cout << b[j];
+		}
+		if (i < v.size()-2){
+		
+	cout << " ";	
+		}
+	}
+	cout << ", ";
+	string c = v[v.size()-1];
+	for ( int i = 0; i < c.length(); i++){
+	if ( c[i] <= 'z' && c[i] >= 'a' ){
+			c[i] -= 32;
+		}
+		cout<< c[i];
+	}
+}
