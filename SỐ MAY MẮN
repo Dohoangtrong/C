@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	for ( int i = 1; i <= n; i++){
+		long long m;
+		cin >> m;
+	cout << (m%100==86) << endl;
+	}
+}
