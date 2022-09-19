@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+struct NhanVien{
+	string id;
+	string name;
+	string sex;
+	string date;
+	string adress;
+	string tax;
+	string day;
+};
+
+void nhap(NhanVien &a){
+	a.id = "00001";
+	getline(cin,a.name);
+	getline(cin,a.sex);
+	getline(cin,a.date);
+	getline(cin,a.adress);
+	getline(cin,a.tax);
+	getline(cin,a.day);
+}
+
+void in(NhanVien a){
+	cout << a.id << " " << a.name << " " << a.sex << " " << a.date << " " << a.adress << " " << a.tax << " " << a.day;
+}
+
+int main(){
+    struct NhanVien a;
+    nhap(a);
+    in(a);
+    return 0;
+}
+
