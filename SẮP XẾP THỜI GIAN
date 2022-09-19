@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct time{
+	int a;
+	int b;
+	int c;
+	int sum;
+};
+
+int main() {
+	int n;
+	cin >> n;
+	struct time ti[n];
+	for ( int i = 0; i < n; i++){
+		cin >> ti[i].a >> ti[i].b >> ti[i].c;
+		ti[i].sum = ti[i].a *3600 + ti[i].b * 60 + ti[i].c;
+	}
+	struct time temp;
+	for ( int i = 0; i < n-1; i++){
+		for ( int j = i; j < n; j++){
+			if ( ti[j].sum < ti[i].sum ){
+				temp = ti[j];
+				ti[j] = ti[i];
+				ti[i] = temp;
+			}
+		}
+	}
+	for ( int i = 0; i < n; i++){
+		cout << ti[i].a << " " << ti[i].b << " " << ti[i].c << endl;
+	}
+}
