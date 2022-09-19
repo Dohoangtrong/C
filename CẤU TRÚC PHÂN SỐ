@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+long long UCLN(long long a,long long b){
+    if (a % b != 0 )
+        return UCLN(b,a % b);
+    else
+        return b;
+}
+
+struct PhanSo{
+	long long tu, mau;
+};
+
+void nhap(PhanSo &a){
+	cin >> a.tu >> a.mau;
+}
+
+void rutgon(PhanSo &a){
+	long long b = UCLN(a.tu,a.mau);
+	a.tu /= b;
+	a.mau /= b;
+}
+
+void in(PhanSo a){
+	cout << a.tu <<"/"<< a.mau;
+}
+
+int main() {
+	struct PhanSo p;
+	nhap(p);
+	rutgon(p);
+	in(p);
+	return 0;
+}
