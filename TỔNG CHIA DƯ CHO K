@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	for ( int i = 1; i <= n; i++){
+		long long a, b;
+		cin >> a >> b;
+		if ( b > 0 ){
+		long long count = a / b;
+		long long sum = b * (b+1) / 2 - b;
+		long long c = a - count * b;
+		long long tong = sum * count + c * (c + 1) / 2;
+		
+		if ( b == tong ){
+			cout << "1" << endl;
+		}else{
+			cout << "0" << endl;
+		}
+		}
+	}
+}
+
