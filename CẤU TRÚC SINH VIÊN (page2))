@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+struct SinhVien{
+	string id;
+	string name;
+	string cls;
+	string date;
+	float Gpa;
+};
+
+void nhapThongTinSV(SinhVien &a){
+	a.id = "N20DCCN001";
+	getline(cin,a.name);
+	cin >> a.cls;
+	cin >> a.date;
+	if(a.date[2]!='/')
+       a.date = "0" + a.date;
+    if(a.date[5]!='/')
+        a.date.insert(3, "0");
+	cin >> a.Gpa;
+	cin.ignore();
+}
+
+void inThongTinSV(SinhVien a){
+	cout << a.id << " " << a.name << " " << a.cls << " " << a.date << " " << setprecision(2) << fixed << a.Gpa;
+}
+
+int main(){
+    struct SinhVien a;
+    nhapThongTinSV(a);
+    inThongTinSV(a);
+    return 0;
+}
+
