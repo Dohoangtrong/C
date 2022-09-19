@@ -1,0 +1,28 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+
+main (){ 
+	int a;
+	cin >> a;
+	while(a--){
+		int n;
+		cin >> n;
+		int b[n];
+		for ( int i = 0; i < n; i++){
+			cin >> b[i];
+		}
+		set<int> s;
+		int max = b[0], min = b[0];
+		for ( int i = 0; i < n; i++){
+			if ( min > b[i] ){
+				min = b[i];
+			}else if ( max < b[i] ){
+				max = b[i];
+			}
+			s.insert(b[i]);
+		}
+		int dem = max - min + 1 - s.size();
+		cout << dem << endl;
+	}
+}
