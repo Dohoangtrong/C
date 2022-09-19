@@ -1,0 +1,50 @@
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+main(){
+	int numberOfTest;
+	cin >> numberOfTest;
+	while(numberOfTest--){
+		int a, b;
+		cin >> a >> b;
+		int arr[a][b];
+		for ( int i = 0; i < a; i++){
+			for ( int j = 0; j < b; j++){
+				cin >> arr[i][j];
+			}
+		}
+		int dem = a * b, kt = 0;
+		int m = a, n = b, c = 0, d = 0;
+		while( kt < dem ){
+			for ( int i = d; i < n; i++){
+				cout << arr[c][i] << " ";
+				kt ++;
+				
+			}
+			c++;
+			for ( int i = c; i < m; i++){
+				cout << arr[i][n-1] << " ";
+				kt ++;
+			}
+			n--;
+			if( kt != dem ){
+			for ( int i = n-1; i >= d; i--){
+				cout << arr[m-1][i] << " ";
+				kt++;
+			}
+			}
+			m--;
+			if ( kt != dem ){
+			for ( int i = m-1; i >= c; i--){
+				cout << arr[i][d] << " ";
+				kt++;
+			}
+			}
+			d++;
+		}
+		cout << endl;
+	}
+}
+
+
