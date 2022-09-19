@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	cin.ignore();
+	for ( int i = 0; i < n; i++){
+		string a;
+		getline(cin, a);
+		for (int i = 0; i < a.length(); i++){
+			if (a[i] == '0' && a[i+1] == '8' && a[i+2] == '4'){
+				a[i] = 'e';
+				a[i+1] = 'e';
+				a[i+2] = 'e';
+			}
+			if(a[i] != 'e')
+			cout << a[i];
+		}
+		cout << endl;
+	}
+	
+}
