@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#include<math.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	while (n--){
+		int a, count;
+		cin >> a;
+		for ( int i = 2; i <= sqrt(a); i++){
+			count = 0;
+			while(a % i == 0){
+				a /= i;
+				count++;
+			}
+			if ( count > 0 ){
+			cout << i << " " << count << " ";
+			}
+		}
+		if ( a > 1 ){
+			cout << a << " " << "1" << " ";
+		}
+		cout << endl;
+	}
+}
+
