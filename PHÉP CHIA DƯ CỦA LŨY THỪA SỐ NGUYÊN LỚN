@@ -1,0 +1,42 @@
+#include<iostream> 
+#include<math.h>
+
+using namespace std; 
+
+long long chiadetri ( long long a, long long b, long long c ){
+	long long du = 1;
+	a = a % c;
+	while(b){
+		if ( b % 2 == 1 ){
+			du *= a;
+			du %= c;
+		}
+		a*= a;
+		a %= c;
+		b /= 2;	
+	}
+	return du;
+}
+
+int main() {
+	int n;
+	cin >> n;
+	cin.ignore();
+	while(n--){
+	long long b, c;
+	string a;
+	cin >> a;
+	cin >> b >> c;
+	long long du = 0;
+	for ( int i = 0; i < a.length(); i++){
+		du = ( du * 10 + ( a[i] - '0' ) ) % c;
+	}
+	long long d = chiadetri(du,b,c);
+	if ( d > c ){
+		d %= c;
+	}
+	cout << d << endl;
+	}
+}
+
+
