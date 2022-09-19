@@ -1,0 +1,43 @@
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+main(){
+	int numberOfTest;
+	cin >> numberOfTest;
+	while(numberOfTest--){
+		int longs, width;   // dai, rong
+		cin >> longs >> width;
+		int arr[width][longs];
+		for ( int i = 0; i < width; i++){
+			for ( int j = 0; j < longs; j++){
+				cin >> arr[i][j];
+			}
+		}
+		int a = longs, b = width, c = 0, d = 0;
+		while(c != longs / 2 && d != width / 2){
+			int numberStart = arr[c][a-1];
+			for ( int i = a-1; i > c; i--){
+				arr[c][i] = arr[c][i-1];
+			}
+			for ( int i = d; i < b-1; i++){
+				arr[i][d] = arr[i+1][d];
+			}
+			for ( int i = c; i < a-1; i++){
+				arr[width-1-d][i] = arr[width-1-d][i+1];
+			}
+			for ( int i = b-1; i > d; i--){
+				arr[i][longs-1-c] = arr[i-1][longs-1-c];
+			}
+			arr[d+1][longs-1-c] = numberStart;
+			a--; b--; c++; d++;
+		}
+		for ( int i = 0; i < width; i++){
+			for ( int j = 0; j < longs; j++){
+				cout << arr[i][j] << " ";
+			}
+		}
+		cout << endl;
+	}
+}
+
