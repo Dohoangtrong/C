@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	cin.ignore();
+	while ( n > 0 ){
+		string a;
+		cin >> a;
+		int sum = 0;
+		for ( int i= 0; i < a.length(); i++){
+			sum += a[i] - '0';
+		}
+		int b;
+		while ( sum >= 10 ){
+		b = 0;
+		b += sum % 10 + (sum/10) % 10 + (sum/100)%10;
+		sum = b;
+		}
+		if ( sum == 9 ){
+			cout << "1" << endl;
+		}else{
+			cout << "0" << endl;
+		}
+	n--;
+	}
+}
+
