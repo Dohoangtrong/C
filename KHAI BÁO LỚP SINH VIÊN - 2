@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#include <string>
+using namespace std;
+
+class SinhVien
+{
+	public:
+	string id;
+	string name;
+	string cls;
+	string date;
+	float Gpa;
+};
+	istream& operator >> (istream &is, SinhVien &a){
+		a.id = "B20DCCN001";
+		getline(is,a.name);
+		getline(is,a.cls);
+		getline(is,a.date);
+		if(a.date[2]!='/')
+      		a.date = "0" + a.date;
+    	if(a.date[5]!='/')
+        	a.date.insert(3, "0");
+		is >> a.Gpa;
+		is.ignore();
+		return is;
+	}
+	
+	ostream& operator <<(ostream &os, SinhVien sv){
+		os << sv.id << " " << sv.name << " " << sv.cls << " " << sv.date << " " << setprecision(2) << fixed << sv.Gpa;
+		return os;
+	}
+
+int main(){
+    SinhVien a;
+    cin >> a;
+    cout << a;
+    return 0;
+}
+
