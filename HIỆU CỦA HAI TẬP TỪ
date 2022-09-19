@@ -1,0 +1,34 @@
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+main(){
+	int n;
+	cin >> n;
+	cin.ignore();
+	while(n--){
+		string s1, s2;
+		getline(cin, s1);
+		getline(cin, s2);
+		set<string> c1;
+		set<string> c2;
+		stringstream ss(s1); 
+		stringstream ss1(s2);
+		string gan;
+		string gan1;
+		while( ss >> gan ){
+			c1.insert(gan);
+		}
+		while( ss1 >> gan1 ){
+			c2.insert(gan1);
+		}
+		for(string i : c1){ 
+			if(c2.find(i) == c2.end()){ 
+				cout<<i<<" "; 
+			}
+		} 
+		cout<<endl;
+	}
+}
+
+
