@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#include<math.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	while (n--){
+		string a;
+		cin >> a;
+		int kt = 1;
+		int b = a.length();
+		for ( int i = 0; i < b/2; i++){
+			if (a[i] % 2 == 1 || a[i] != a[b-1-i]){
+				kt = 0;
+				break;
+			}
+		}
+		if (kt){
+			cout << "YES" << endl;
+		}else{
+			cout << "NO" << endl;
+		}
+	}
+}
+
