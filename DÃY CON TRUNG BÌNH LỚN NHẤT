@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+void getArray(int [], int);
+
+int indexExpect(int a[], int n, int k) {
+    int index = -1;
+    double max = -10000.0;
+    for (int i = 1; i <= n - k + 1; i++) 
+        if (max < (double(a[i + k - 1] - a[i - 1]) / k)) {
+            max = (double(a[i + k - 1] - a[i - 1]) / k);
+            index = i;
+        }
+
+    return index;
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+
+        int A[1001];
+        getArray(A, n);
+
+        int pos = indexExpect(A, n, k);
+
+        for (int i = pos; i <= pos + k - 1; i++) cout << A[i] - A[i - 1] << " ";
+        cout << endl;
+    }
+
+    return 0;
+}
+
+void getArray(int a[], int n) {
+    a[0] = 0;
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i];
+        a[i] += a[i - 1];
+    }
+}
