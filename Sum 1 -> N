@@ -1,0 +1,9 @@
+#include<iostream>
+
+using namespace std;
+int main(){ 
+int n; cin >> n; 
+while (n>10) { cin >> n; } 
+for(int i=0;i<n;i++){ long long a; 
+cin >> a; long long b = (a+1)*a/2; cout << b << endl; 
+} return 0; }
