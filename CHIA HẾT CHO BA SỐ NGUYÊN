@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+long long ucln(long long a, long long b){
+	if ( b == 0 ){
+		return a;
+	}else{
+		return ucln(b, a%b);
+	}
+}
+
+main(){
+	int n;
+	cin >> n;
+	while(n--){
+		long long a, b, c, d;
+		cin >> a >> b >> c >> d;
+		long long e = a*b/ucln(a,b);
+		e = e*c/ucln(e,c);
+		long long min = pow(10,d-1);
+		long long max = pow (10, d);
+		long long cnt = min / e;
+		if ( max / e == min / e ){
+			cout << -1 << endl;
+		}else if ( min % e == 0 ){
+			cout << min << endl;
+		}else{
+			cout << e*(cnt+1) << endl;
+		}
+	}
+}
+
