@@ -1,0 +1,21 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+
+main (){ 
+	int a;
+	cin >> a;
+	while(a--){
+		int n, m;
+		cin >> n >> m;
+		int b[n+m];
+		for ( int i = 0; i < n+m; i++){
+			cin >> b[i];
+		}
+		sort(b,b+n+m);
+		for ( int i = 0; i < n+m; i++){
+			cout << b[i] <<" ";
+		}
+		cout << endl;
+	}
+}
