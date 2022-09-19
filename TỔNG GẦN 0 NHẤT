@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#include <math.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	while(n--){
+		int a;
+		cin >> a;
+		int b[a];
+		for ( int i = 0; i < a; i++){
+			cin >> b[i];
+		}
+		int ss = 1000000;
+		for ( int i = 0; i < a-1; i++){
+			for ( int j = i + 1; j < a; j++){
+				int c = abs ( b[i] + b[j] );
+				if ( c < abs(ss)){
+					ss = b[i] + b[j];
+				}
+			}
+		}
+		cout << ss << endl;
+	}
+}
