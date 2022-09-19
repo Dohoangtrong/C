@@ -1,0 +1,30 @@
+#include<bits/stdc++.h> 
+
+using namespace std;
+
+main(){
+	int n;
+	cin >> n;
+	cin.ignore();
+	while (n--){
+		string a;
+		getline(cin,a);
+		int check = 0, check1 = 0, check2 = 0;
+		if ( a[5] == a[6] && a[6] == a[7] &&  a[9] == a[10] ){
+			check = 1;
+		}
+		if ( a[5] < a[6] && a[6] < a[7] && a[7] < a[9] && a[9] < a[10] ){
+			check1 = 1;
+		}
+		if ( (a[5] == '6' || a[5] == '8') && (a[6] == '6' || a[6] == '8') && (a[7] == '6' || a[7] == '8') && 
+		(a[9] == '6' || a[9] == '8') && (a[10] == '6' || a[10] == '8') ){
+			check2 = 1;
+		}
+		if ( check == 1 || check1 == 1 || check2 == 1 ){
+			cout << "YES" << endl;
+		}else{
+			cout << "NO" << endl;
+		}
+	}
+}
+
