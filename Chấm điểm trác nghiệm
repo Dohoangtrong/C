@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	while (n--){
+		int a;
+		cin >> a;
+		double mark = 0;
+		char test101[15]= {'A','B','B','A','D','C','C','A','B','D','C','C','A','B','D'}; 
+		char test102[15]= {'A','C','C','A','B','C','D','D','B','B','C','D','D','B','B'};
+		char b[15];
+		for ( int i = 0; i < 15; i++){
+			cin >> b[i];
+		}
+	if(a == 101){
+		for ( int i = 0; i < 15; i++){
+			if ( test101[i] == b[i] ){
+				mark += (double)2/3;
+			}
+		}
+	}
+	if(a == 102){
+		for ( int i = 0; i < 15; i++){
+			if ( test102[i] == b[i] ){
+				mark += (double)2/3;
+			}
+		}
+	}
+		cout << setprecision(2) << fixed << mark << endl;
+	}
+}
+
