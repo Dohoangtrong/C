@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	int a;
+	cin >> a;
+	for ( int i = 0; i < a; i++){
+	long long n, max = 1;
+	cin >> n;
+	long long m = n;
+	for ( long long i = 2; i <= sqrt(m); i++){
+		while(n % i == 0){
+			n /= i;
+			max = i;
+		}
+	}
+	if ( n == 1 ){
+	if ( max == 1 ){
+	cout << m;
+	}else{
+		cout << max;
+	}
+	}
+	if ( n > 1 ){
+		cout << n;
+	}
+	cout << endl;
+}
+}
+
