@@ -1,0 +1,42 @@
+#include<iostream>
+#include<math.h>
+
+using namespace std;
+
+bool chanle (int a){
+	int chan = 0;
+	int le = 0;
+	while(a > 0){
+		int b = a % 10;
+		a /= 10;
+		if ( b % 2 == 0 ){
+			chan++;
+		}else{
+			le++;
+		}
+	}
+	if ( chan == le ){
+		return true;
+	}
+	return false;
+}
+
+int main(){
+	int n;
+	cin >> n;
+	int dem = 0;
+	if ( n % 2 == 0 ){
+		int a = pow(10,n-1);
+		int b = pow(10,n);
+		for(int i = a; i< b;i++){
+			if(chanle(i)==true){
+			
+			cout << i << " ";
+			dem++;
+			if(dem % 10 == 0){
+				cout << endl;
+			}
+		}
+		}
+	} 
+}
