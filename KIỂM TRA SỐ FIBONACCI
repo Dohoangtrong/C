@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int fibo(long long n){
+	long long n0 = 0, n1 = 1, n2;
+	while(n0 < n){
+		n2 = n0 + n1;
+		n0 = n1;
+		n1 = n2;
+	}
+	if ( n1 == n || n0 == n ){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+
+main(){
+	int n;
+	cin >> n;
+	while(n--){
+		long long a;
+		cin >> a;
+		if (fibo(a)){
+			cout <<"YES" <<endl;
+		}else{
+			cout << "NO" <<endl;
+		}
+	}
+}
+
