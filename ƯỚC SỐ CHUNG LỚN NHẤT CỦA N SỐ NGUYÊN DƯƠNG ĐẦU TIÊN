@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+int ucln (long long a, long long b){
+	while ( a * b != 0 ){
+		if ( a > b ){
+			a %= b;
+		}else{
+			b %= a;
+		} 	
+	}
+	return a+b;
+}
+
+int main(){
+	int n;
+	cin >> n;
+	for ( int i = 0; i < n; i++){
+		long long a, b = 1;
+		cin >> a;
+		for(long long i = 2 ; i <= a; i++){
+			b /= ucln(b,i);
+			b *= i;
+			
+		}
+		cout << b << endl;
+	}
+}
