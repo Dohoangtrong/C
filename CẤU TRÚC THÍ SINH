@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+struct ThiSinh{
+	string name;
+	string ngaysinh;
+	float mon1, mon2, mon3;
+	float tong;	
+};
+
+void nhap(ThiSinh &a){
+	getline(cin,a.name);
+	getline(cin,a.ngaysinh);
+	cin >> a.mon1 >> a.mon2 >> a.mon3;
+	cin.ignore();
+	a.tong = a.mon1 + a.mon2 + a.mon3;
+}
+
+void in(ThiSinh a){
+	cout << a.name << " " << a.ngaysinh << " " << setprecision(1) << fixed << a.tong;
+}
+
+int main(){
+    struct ThiSinh A;
+    nhap(A);
+    in(A);
+    return 0;
+}
