@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#include <math.h>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+struct SinhVien{
+	string id;
+	string name;
+	string cls;
+	string date;
+	float Gpa;
+};
+
+void nhap(SinhVien &a){
+	a.id = "B20DCCN001";
+	getline(cin,a.name);
+	getline(cin,a.cls);
+	getline(cin,a.date);
+	if(a.date[2]!='/')
+       a.date = "0" + a.date;
+    if(a.date[5]!='/')
+        a.date.insert(3, "0");
+	cin >> a.Gpa;
+	cin.ignore();
+}
+
+void in(SinhVien a){
+	cout << a.id << " " << a.name << " " << a.cls << " " << a.date << " " << setprecision(2) << fixed << a.Gpa;
+}
+
+int main(){
+    struct SinhVien a;
+    nhap(a);
+    in(a);
+    return 0;
+}
