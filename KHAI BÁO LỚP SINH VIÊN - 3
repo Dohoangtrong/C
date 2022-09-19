@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+#include <string>
+using namespace std;
+
+class SinhVien
+{
+	public:
+	string id;
+	string name;
+	string cls;
+	string date;
+	float Gpa;
+	public:
+		SinhVien(){
+		}
+};
+	istream& operator >> (istream &is, SinhVien &a){
+		a.id = "B20DCCN001";
+		getline(is,a.name);
+		getline(is,a.cls);
+		getline(is,a.date);
+		// - dua ngay ve dang chuan ------------------
+		if(a.date[2]!='/')
+      		a.date = "0" + a.date;
+    	if(a.date[5]!='/')
+        	a.date.insert(3, "0");
+        // ------------------------------------
+		is >> a.Gpa;
+		is.ignore();
+		return is;
+	}
+	
+	ostream& operator <<(ostream &os, SinhVien sv){
+		os << sv.id << " ";
+		// dua ten ve dang chuan-----------------------
+		stringstream ss(sv.name);
+		string temp;
+		vector<string> v;
+		while(ss >> temp){
+			v.push_back(temp);
+		}
+		for ( int i = 0; i < v.size(); i++){
+			string b = v[i];
+		if ( b[0] <= 'z' && b[0] >= 'a' ){
+			b[0] -= 32;
+		}
+		cout << b[0];
+		for ( int j = 1; j < b.length(); j++){
+			if (b[j] >= 'A' && b[j] <= 'Z'){
+				b[j] += 32;
+			}
+			cout << b[j];
+		}
+			if (i < v.size()-1){
+		
+				cout << " ";	
+			}
+		}
+		//------------------------------
+		os << " " << sv.cls << " " << sv.date << " " << setprecision(2) << fixed << sv.Gpa;
+		return os;
+	}
+
+int main(){
+    SinhVien a;
+    cin >> a;
+    cout << a;
+    return 0;
+}
+
