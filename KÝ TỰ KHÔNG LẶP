@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+#include<math.h>
+
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	while (n--){
+		string a;
+		cin >> a;
+		for ( int i = 0; i < a.length()-1; i++){
+			int kt = 0;
+			for ( int j = i+1; j < a.length(); j++){
+				if ( a[i] == a[j] ){
+					a[j] = '0';
+					kt = 1;
+				}
+			}
+			if ( kt == 1 ){
+			a[i] = '0';
+			}
+		}
+		for ( int i = 0; i < a.length(); i++){
+			if ( a[i] != '0'){
+			cout << a[i];
+			}
+		}
+		cout << endl;
+	}
+}
+
