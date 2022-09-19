@@ -1,0 +1,31 @@
+#include<bits/stdc++.h> 
+#include<string>
+#include<cctype>
+
+using namespace std; 
+main (){ 
+	int a;
+	cin >> a;
+	while(a--){
+		int n;
+		cin >> n;
+		int b[n];
+		for ( int i = 0; i < n; i++){
+			cin >> b[i];
+		}
+		sort(b,b+n);
+		if(n % 2 == 1){
+		for ( int i = 0; i < n/2; i++){
+			cout << b[n-i-1] << " ";
+			cout << b[i] << " ";
+		}
+		cout << b[n/2];
+		}else{
+			for ( int i = 0; i < n/2; i++){
+			cout << b[n-i-1] << " ";
+			cout << b[i] << " ";
+		}
+		}
+		cout << endl;
+	}
+}
