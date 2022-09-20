@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){ 
+	int t;
+	cin >> t;
+	cin.ignore();
+	while(t--){
+		string a;
+		cin >> a;
+		long long max = 0;
+		long long s = 0;
+		for ( int i = 0; i < a.length(); i++){
+			if ( a[i] <= '9' && a[i] >= '0' ){
+				s = (a[i] - '0') + s * 10;
+			}else{
+				if ( max < s ){
+					max = s;
+				}
+				s = 0;
+			}
+		}
+		cout << max << endl;
+	}
+}
+
