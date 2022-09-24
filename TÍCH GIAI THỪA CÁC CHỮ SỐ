@@ -1,0 +1,48 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+
+main(){
+	int n;
+	cin >> n;
+	while(n--){
+		int a;
+		cin >> a;
+		char b[20];
+		for ( int i = 0; i < a; i++){
+			cin >> b[i];
+		}
+		string res;
+		for(int i = 0; i < a; i++) { 
+			switch (b[i]) { 
+				case '2': 
+					res += "2"; 
+					break; 
+				case '3':
+					res += "3"; 
+					break; 
+				case '4':  
+					res += "223"; 
+					break; 
+				case '5':  
+					res += "5"; 
+					break; 
+				case '6': 
+					res += "53"; 
+					break; 
+				case '7': 
+					res += "7"; 
+					break; 
+				case '8': 
+					res += "7222"; 
+					break; 
+				case '9': 
+					res += "3372"; 
+					break; 
+			} 
+		}
+		sort(res.begin(), res.end(), [](int a, int b){return a>b;});
+		cout << res;
+		cout << "\n";
+	}
+}
