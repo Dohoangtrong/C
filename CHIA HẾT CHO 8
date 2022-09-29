@@ -1,0 +1,29 @@
+#include<bits/stdc++.h> 
+
+using namespace std; 
+
+int solve( int n, string a ){
+	int dem = 0;
+	for ( int i = 0; i < a.length(); i++){
+		int m = 0;
+		for ( int j = i; j < a.length(); j++){
+			m = m*10 + a[j] - '0';
+			m %= n;
+			if ( m % n == 0 ){
+				dem++;
+			}
+		}
+	}
+	return dem;
+}
+
+main(){
+	int t;
+	cin >> t;
+	while(t--){
+		int count = 0;
+		string a;
+		cin >> a;
+		cout << solve(8,a) - solve(24,a) << endl;
+	}
+}
