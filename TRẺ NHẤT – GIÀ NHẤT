@@ -1,0 +1,53 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+struct Nguoi{ 
+	string name ,date;
+	string ss;
+	int day; 
+}; 
+
+void nhap(Nguoi a[], int N){
+	for ( int i = 0; i < N; i++){
+		cin >> a[i].name >> a[i].date;
+	}
+}
+
+void xuly(Nguoi a[], int N){
+	for ( int i = 0; i < N; i++){
+		string b = a[i].date;
+		for ( int j = 6; j <= 9; j++){
+				a[i].ss += b[j];
+		}for ( int j = 3; j <= 4; j++){
+				a[i].ss += b[j];
+		}
+		for ( int j = 0; j <= 1; j++){
+				a[i].ss += b[j];
+		}
+		a[i].day = stoi(a[i].ss);
+	}
+}
+
+void in(Nguoi a[], int N){
+	int max = a[0].day, min = a[0].day, m, n;
+	for ( int i = 1; i < N; i++){
+		if ( max < a[i].day ){
+			max = a[i].day;
+			m = i;
+		}else if ( min > a[i].day ){
+			min = a[i].day;
+			n = i;
+		}
+	}
+	cout << a[m].name << endl << a[n].name;
+}
+
+main(){
+	struct Nguoi ng[100];
+	int n;
+	cin >> n;
+	nhap(ng,n);
+	xuly(ng,n);
+	in(ng,n);
+}
+
