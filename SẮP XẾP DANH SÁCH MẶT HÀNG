@@ -1,0 +1,50 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+struct MatHang{
+	int id;
+	string name, group;
+	double sell, buy, profit;
+};
+
+void nhap(MatHang a[], int N){
+	for ( int i = 1; i <= N; i++){
+		cin.ignore();
+		a[i].id = i;
+		getline(cin,a[i].name);
+		getline(cin,a[i].group);
+		cin >> a[i].buy;
+		cin >> a[i].sell;
+		a[i].profit = a[i].sell - a[i].buy;
+	}
+}
+
+void in(MatHang a[], int N){
+	for ( int i = 1; i <= N; i++){
+		cout << a[i].id << " " << a[i].name << " " << a[i].group << " " << setprecision(2) << fixed << a[i].profit << endl;
+	}
+}
+
+void sapxep(MatHang a[], int N){
+	MatHang tmp;
+	for ( int i = 1; i < N; i++){
+		for ( int j = i+1; j <= N; j++){
+			if ( a[i].profit < a[j].profit ){
+				tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+}
+
+int main(){
+    struct MatHang ds[50];
+    int N;
+    cin >> N;
+    nhap(ds, N);
+    sapxep(ds,N);
+    in(ds, N);
+    return 0;
+}
+
