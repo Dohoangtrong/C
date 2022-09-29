@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+main(){
+	int t;
+	cin >> t;
+	while(t--){
+		int a;
+		cin >> a;
+		int arr[a];
+		for ( int i = 0; i < a; i++){
+			cin >> arr[i];
+		}
+		cout << arr[0] * arr[1] << " " << arr[0] * arr[2] << " ";
+		for ( int i = 1; i < a-2; i++){
+			cout << arr[i] * arr[i+2] << " ";
+		}
+		cout << arr[a-1] * arr[a-2] << endl;
+	}
+}
