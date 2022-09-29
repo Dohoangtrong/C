@@ -1,0 +1,86 @@
+#include<bits/stdc++.h>
+#include <string>
+using namespace std;
+
+struct NhanVien{
+	string id, name, sex, date, adress, tax, day;
+	int ss;
+	int id1;
+};
+
+int ms(){
+	static int count = 0;
+	count++;
+	return count;
+}
+
+void nhap(NhanVien &a){
+	cin.ignore();
+	int c = ms();
+	if (c < 10){
+		a.id = "0000";	
+	}else{
+		a.id = "000";
+	}
+	a.id1 = c;
+	getline(cin,a.name);
+	cin >> a.sex;
+	cin >> a.date;
+	cin.ignore();
+	getline(cin,a.adress);
+	cin >> a.tax;
+	cin >> a.day;
+}
+
+void xuly(NhanVien ds[], int N){
+	for ( int i = 0; i < N; i++){
+		string b = ds[i].date;
+		ds[i].ss = 0;
+		for ( int j = 6; j <= 9; j++){
+				ds[i].ss +=  b[j] -'0' + ds[i].ss * 10;
+		}for ( int j = 0; j <= 1; j++){
+				ds[i].ss +=  b[j] -'0' + ds[i].ss * 10;
+		}
+		for ( int j = 3; j <= 4; j++){
+				ds[i].ss +=  b[j] -'0' + ds[i].ss * 10;
+		}
+	}
+}
+
+void sapxep(NhanVien ds[], int N){
+	NhanVien temp;
+	xuly(ds,N);
+	for ( int i = 0; i < N-1; i++){
+		for ( int j = i+1; j < N; j++){
+			if ( ds[i].ss > ds[j].ss ){
+				temp = ds[i];
+				ds[i] = ds[j];
+				ds[j] = temp;
+			}
+		}
+	}
+}
+
+void inds(NhanVien ds[], int N){
+	sapxep(ds,N);
+	for ( int i = 0; i < N; i++){
+		cout << ds[i].id << ds[i].id1 << " "
+		<< ds[i].name << " " 
+		<< ds[i].sex << " " 
+		<< ds[i].date << " " 
+		<< ds[i].adress << " " 
+		<< ds[i].tax << " " 
+		<< ds[i].day << endl;
+	}
+}
+
+int main(){
+    struct NhanVien ds[50];
+    int N,i;
+    cin >> N;
+    for(i = 0; i < N; i++) nhap(ds[i]);
+    sapxep(ds, N);
+    inds(ds, N);
+    return 0;
+}
+
