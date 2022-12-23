@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+// so emirp
+bool checkprime( int n ){
+	for ( int i = 2; i <= sqrt(n); i++){
+		if ( n % i == 0 ){
+			return false;
+		}
+	}
+	return true;
+}
+
+bool proces( int n ){
+	int tmp = n;
+	bool kt = checkprime(n);
+	int m = 0;
+	if (kt == true){
+		while(n>0){
+			m = m*10 + n % 10;
+			n /= 10;
+		}
+		if ( m == tmp ){
+			return false;
+		}
+		if ( checkprime(m) ){
+			return true;
+		}
+		return false;
+	}else{
+		return false;
+	}
+}
+
+int main(){
+	// min >= 10, max <= 1e5
+	int min, max;
+	cin >> min >> max;
+	for ( int i = min; i <= max; i++){
+		if ( proces(i) ){
+			cout << i << endl;
+		}
+	}
+}
+
+
