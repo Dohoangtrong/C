@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+// so tu man
+// khi so do = tong lap phuong cac chu so cua no
+bool process( int n ){
+	int ss = n, sum = 0;
+	while( n > 0 ){
+		int tmp = n % 10;
+		sum += tmp * tmp * tmp;
+		n /= 10;
+		if ( sum > ss ){
+			return false;
+		}
+	}
+	if ( sum == ss ){
+		return true;	
+	}else{
+		return false;
+	}
+}
+
+int main(){
+	// max <= 1e4
+	int min, max;
+	cin >> min >> max;
+	for ( int i = min; i <= max; i++){
+		if ( process(i) ){
+			cout << i << endl;
+		}
+	}
+}
+
+// chi co 5 so tim dc
+
+
